@@ -1,0 +1,72 @@
+{% extends "studentInformationSystem/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+            <div class="container-fluid">
+                <div class="container">
+                    <form method="get">
+                        {{ filter.form }}
+                        <br/>
+                        <button class="btn-primary btn-sm mt-1 mb-1" type="submit">Search</button>
+                        <a href="/"><button class="btn-danger btn-sm mt-1 mb-1" type="button">Reset</button></a>
+                        <a href="#"><button class="btn-info btn-sm mt-1 mb-1" type="button">Generate Report</button></a>
+                    </form>
+                </div>
+
+            <div class="container">
+                <table id="student" class="display" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Student ID</th>
+                            <th>First</th>
+                            <th>Last</th>
+                            <th>Grade</th>
+                            <th>House</th>
+                            <th>Birthday</th>
+                            <th>Gender</th>
+                            <th>Country</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in filter.qs %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ i.studentID }}</td>
+                            <td><a href={% url 'student-details' i.id %}>{{ i.firstname }}</a></td>
+                            <td>{{ i.lastname }}</td>
+                            <td>{{ i.grade }}</td>
+                            <td>{{ i.house }}</td>
+                            <td>{{ i.birthday }}</td>
+                            <td>{{ i.gender }}</td>
+                            <td>{{ i.country }}</td>
+                            <td>
+                              <a class="btn btn-info btn-sm mt-1 mb-1" href="{% url 'student-details' i.id %}">View</a>
+                              <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'student-update' i.id %}">Edit</a>
+                              <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'student-delete' i.id %}">Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <tr>
+                              <th>#</th>
+                              <th>Student ID</th>
+                              <th>First</th>
+                              <th>Last</th>
+                              <th>Grade</th>
+                              <th>House</th>
+                              <th>Birthday</th>
+                              <th>Gender</th>
+                              <th>Country</th>
+                              <th>Action</th>
+                            </tr>
+                        </tr>
+                    </tfoot>
+    </table>
+
+    </div>
+    </div>
+{% endblock content  %}

@@ -1,0 +1,25 @@
+{% extends "studentInformationSystem/base.html" %}
+{% block content %}
+
+    <article class="media content-section">
+        <img class="rounded circle article-img" src="">
+      <div class="media-body">
+        <div class="article-metadata">
+          <a class="mr-2" href="#">{{ object.studentID }} </a>
+          <small class="text-muted">Grade: {{ object.grade }}</small>
+        </div>
+        <h2 class="article-title">{{ object.firstname }} {{ object.lastname }}</h2>
+        <p class="article-content">House: {{ object.house }}</p>
+        <p class="article-content">Birthday: {{ object.birthday }}</p>
+        <p class="article-content">Gender: {{ object.gender }}</p>
+        <p class="article-content">Citizenship: {{ object.citizenship }}</p>
+        <p class="article-content">Mother Tongue: {{ object.motherTongue }}</p>
+        <p class="article-content">Religion: {{ object.religion }}</p>
+        <p class="article-content">Guardian: {{ object.guardian }}</p>
+        <p class="article-content">Relationship: {{ object.relationship }}</p>
+        <p class="article-content">Guardian Contact Number: {{ object.guardianContactNumber }}</p>
+        <p class="article-content">Guardian Email: {{ object.guardianEmail }}</p>
+      </div>
+    </article>
+    </article>
+{% endblock content  %}
