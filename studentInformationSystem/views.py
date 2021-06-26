@@ -8,7 +8,6 @@ from django.views.generic import(
 from .models import Student
 from .filters import StudentFilter
 from django.contrib.auth.mixins import LoginRequiredMixin
-import reportlab
 import io
 from django.http import FileResponse
 from reportlab.pdfgen import canvas
